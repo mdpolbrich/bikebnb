@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  get "bikes/new", to: "bikes#new"
+  get "bikes/new", to: "bikes#new", as: :new_bike
   post "bikes/", to: "bikes#create"
-  get "bikes/:id/edit", to: "bikes#edit"
-  patch "bikes/:id/", to: "bikes#update"
-  delete "bikes/:id/", to: "bikes#destroy"
+  get "bikes/:id/edit", to: "bikes#edit", as: :edit_bike
+  patch "bikes/:id", to: "bikes#update"
+
+  delete "bikes/:id", to: "bikes#destroy"
 end
