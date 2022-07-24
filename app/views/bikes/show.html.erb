@@ -1,0 +1,27 @@
+<h1><%= @bike.name%></h1>
+
+<%# Main attributes we want to show in our bike card %>
+
+<%# Before adding the image, we have to add in "new" the option to upload a photo.
+That means that we have to change the bike model %>
+<%= @bike.model%><br>
+<%= @bike.description%><br>
+<%= @bike.location%><br>
+<%= @bike.year%><br>
+<%= @bike.price%><br>
+
+<%# This link will work after we code the index page%>
+<%= link_to "Back to home", bikes_path %>
+
+<%# This link will work after we code the index page%>
+<%= link_to "Delete #{@bike.name}",
+  bike_path(@bike),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+
+<hr>
+<p>the booking form is going to be displayed here</p>
+<%# This is going to be the form to book a bike.
+It will work, when we create the bookings controller with
+the new action%>
+<%# <%= render "bookings/new", bike: @bike %>
