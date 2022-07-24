@@ -2,8 +2,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  margin: 0 -5px;
 }
 
-.card{
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 
+.bottomtext {
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+}
+
+.bottomtier {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+
+.bottomalign {
+  position: absolute;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
 }

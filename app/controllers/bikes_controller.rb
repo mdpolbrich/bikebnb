@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show, :edit, :update, :destroy]
+  before_action :set_bike, only: [:show, :edit, :show, :update, :destroy]
 #  has_one_attached :image
 
   def new
@@ -10,10 +10,13 @@ class BikesController < ApplicationController
     @bike = Bike.new(bike_params)
     @bike.save
 
-    redirect_to bikes_path(@bike)
+    redirect_to bike_path(@bike)
   end
 
   def edit
+  end
+
+  def show
   end
 
   def update
