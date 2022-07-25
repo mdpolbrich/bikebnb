@@ -1,17 +1,22 @@
-<h1><%= @bike.name%></h1>
+<h1> OUR BIKES </h1>
 
 <%# Main attributes we want to show in our bike card %>
 
 <%# Before adding the image, we have to add in "new" the option to upload a photo.
 That means that we have to change the bike model %>
-<%= @bike.model%><br>
-<%= @bike.description%><br>
-<%= @bike.location%><br>
-<%= @bike.year%><br>
-<%= @bike.price%><br>
+ <div class="row">
+    <% @bike.each do |item| %>
+      <div class="co-12 col-sm-6 col-md-4">
+        <%= link_to bike_path(item), class: "text-decoration-none" do %>
+            <%= item.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 <%# This link will work after we code the index page%>
-<%= link_to "Back to home", bikes_path %>
+<%= link_to "Back to home", root_path %>
 
 <%# This link will work after we code the index page%>
 <%= link_to "Delete #{@bike.name}",
