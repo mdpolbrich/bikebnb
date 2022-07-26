@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get "bikes/:id", to: "bikes#show", as: :bike
   patch "bikes/:id", to: "bikes#update"
   delete "bikes/:id", to: "bikes#destroy"
+
+  get "bookings/new", to: "bookings#new", as: :new_booking
+  post "bookings/", to: "bookings#create"
+  get "bookings/:id", to: "bookings#show", as: :booking
 end
