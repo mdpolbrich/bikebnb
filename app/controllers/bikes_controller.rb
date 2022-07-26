@@ -1,6 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show, :edit, :show, :update, :destroy]
-
+  before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
   def index
     @bikes = Bike.all
@@ -12,6 +11,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
+    @bike.user = current_user
     @bike.save
 
     redirect_to bike_path(@bike)
@@ -25,14 +25,9 @@ class BikesController < ApplicationController
 
   def update
     @bike.update(bike_params)
-    @bike.save
+    # the update action already saves the changes
 
-    redirect_to bikes_path(@bike)
-    if @bike.save
-      redirect_to bikes_path(@bike)
-    else
-      render :new
-    end
+    redirect_to bike_path(@bike)
   end
 
   def destroy
