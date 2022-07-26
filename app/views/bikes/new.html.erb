@@ -1,15 +1,15 @@
 <div class="banner">
   <div class="row justify-content-center">
     <div class="col-6">
-        rails <%= simple_form_for(@bike) do |f| %>
+        <%= simple_form_for(@bike) do |f| %>
           <%= f.input :name %>
           <%= f.input :model %>
           <%= f.input :description %>
           <%= f.input :location %>
           <%= f.input :year %>
           <%= f.input :price %>
-          <%= f.submit %>
           <%= f.input :photo, as: :file %>
+          <%= f.submit %>
         <% end %>
     </div>
   </div>
