@@ -1,6 +1,5 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
-#  has_one_attached :image
 
   def index
     @bikes = Bike.all
@@ -29,11 +28,6 @@ class BikesController < ApplicationController
     # the update action already saves the changes
 
     redirect_to bike_path(@bike)
-   # if @bike.save
-    #  redirect_to bikes_path(@bike)
-   # else
-   #   render :new
-  #  end
   end
 
   def destroy
