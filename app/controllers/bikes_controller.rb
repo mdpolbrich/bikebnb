@@ -11,7 +11,7 @@ class BikesController < ApplicationController
     @bike.user_id = current_user.id
     @bike.save!
 
-    # redirect_to bike_path(@bike)
+    redirect_to root_path
   end
 
   def edit
