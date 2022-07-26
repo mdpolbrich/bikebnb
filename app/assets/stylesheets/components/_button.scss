@@ -1,0 +1,23 @@
+.btn {
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.btn-secondary {
+  background-color: white;
+  border: 2px solid $primary;
+  color: $primary
+}
+
+.btn-secondary:hover {
+  background-color: $primary;
+  color: white;
+  border: 2px solid $primary;
+}
+
+.btn-secondary:after {
+  background-color: white;
+  border: 2px solid $primary;
+  color: $primary
+}
