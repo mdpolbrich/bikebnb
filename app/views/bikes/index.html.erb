@@ -1,10 +1,10 @@
 <h1> OUR BIKES click on it to create a booking</h1>
 
 <div class="row">
-    <% @bike.each do |item| %>
+    <% @bikes.each do |bike| %>
       <div class="co-12 col-sm-6 col-md-4">
-        <%= link_to bike_path(item), class: "text-decoration-none" do %>
-            <%= item.name %>
+        <%= link_to bike_path(bike), class: "text-decoration-none" do %>
+            <%= bike.name %>
           </div>
         <% end %>
       </div>

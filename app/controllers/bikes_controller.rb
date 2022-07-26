@@ -2,12 +2,12 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :show, :update, :destroy]
 #  has_one_attached :image
 
-  def new
-    @bike = Bike.new
+  def index
+    @bikes = Bike.all
   end
 
-  def index
-    @bike = Bike.all
+  def new
+    @bike = Bike.new
   end
 
   def create
