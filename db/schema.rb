@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2022_07_23_170628) do
     t.string "name"
     t.string "model"
     t.text "description"
-    t.string "image"
     t.string "location"
     t.integer "year"
     t.float "price"
@@ -58,8 +57,8 @@ ActiveRecord::Schema.define(version: 2022_07_23_170628) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.string "start"
-    t.string "end"
+    t.datetime "start"
+    t.datetime "end"
     t.bigint "user_id", null: false
     t.bigint "bike_id", null: false
     t.datetime "created_at", precision: 6, null: false
