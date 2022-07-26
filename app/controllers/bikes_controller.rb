@@ -6,6 +6,10 @@ class BikesController < ApplicationController
     @bike = Bike.new
   end
 
+  def index
+    @bike = Bike.all
+  end
+
   def create
     @bike = Bike.new(bike_params)
     @bike.save
