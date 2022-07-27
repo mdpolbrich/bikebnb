@@ -12,7 +12,6 @@ class BikesController < ApplicationController
   def create
     @bike = Bike.new(bike_params)
     @bike.user = current_user
-    @bike.save
 
     redirect_to bike_path(@bike)
   end
@@ -24,10 +23,12 @@ class BikesController < ApplicationController
   end
 
   def update
-    @bike.update(bike_params)
     # the update action already saves the changes
-
-    redirect_to bike_path(@bike)
+    if @bike.update(bike_params)
+      redirect_to bike_path(@bike)
+    else
+      render :new
+    end
   end
 
   def destroy
