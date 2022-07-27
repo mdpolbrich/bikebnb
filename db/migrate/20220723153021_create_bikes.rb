@@ -4,7 +4,6 @@ class CreateBikes < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :model
       t.text :description
-      t.string :image
       t.string :location
       t.integer :year
       t.float :price
