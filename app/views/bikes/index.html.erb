@@ -3,12 +3,15 @@
 <div class="row">
     <% @bikes.each do |bike| %>
       <div class="co-12 col-sm-6 col-md-4">
+      <% if @create = true %>
         <%= link_to bike_path(bike), class: "text-decoration-none" do %>
             <%= bike.name %>
           </div>
         <% end %>
+      <% else %>
+      <h1> Hello There </h1>
+      <% end %>
       </div>
     <% end %>
-  </div>
 
   <%= link_to "Back to home", root_path %>
