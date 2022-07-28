@@ -1,14 +1,24 @@
+<div class="banner">
 <h1> OUR BIKES click on it to create a booking</h1>
 
-<div class="row">
-    <% @bikes.each do |bike| %>
-      <div class="co-12 col-sm-6 col-md-4">
-        <%= link_to bike_path(bike), class: "text-decoration-none" do %>
-            <%= bike.name %>
+  <div class="cards">
+    <div class="co-12 col-sm-6 col-md-4">
+      <% if @bikes.blank? %>
+           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg)">
+            <div class="bottomalign">
+              <h2 class="bottomtext">Cycle 1</h2>
+              <p class="bottomtier"> Posted by user </p>
+            </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
+        <% else %>
+          <% @bikes.each do |bike| %>
+          <%= link_to bike_path(bike), class: "text-decoration-none" do %>
+          <%= bike.name %>
+      <% end %>
+    </div>
   </div>
+  <% end %>
 
   <%= link_to "Back to home", root_path %>
+</div>
+<% end %>
