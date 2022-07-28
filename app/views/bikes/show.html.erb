@@ -1,9 +1,23 @@
+
+<div class="card-product">
+  <img src="cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill"/>
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+
+
 <h1><%= @bike.name%></h1>
 
 <%# Main attributes we want to show in our bike card %>
 
 <%# Before adding the image, we have to add in "new" the option to upload a photo.
 That means that we have to change the bike model %>
+
+
+
 <%= @bike.model%><br>
 <%= @bike.description%><br>
 <%= @bike.location%><br>
