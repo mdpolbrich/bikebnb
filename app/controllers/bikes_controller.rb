@@ -27,10 +27,12 @@ class BikesController < ApplicationController
   end
 
   def update
-    @bike.update(bike_params)
     # the update action already saves the changes
-
-    redirect_to bike_path(@bike)
+    if @bike.update(bike_params)
+      redirect_to bike_path(@bike)
+    else
+      render :edit
+    end
   end
 
   def destroy
