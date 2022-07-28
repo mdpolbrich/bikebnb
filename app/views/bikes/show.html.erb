@@ -9,6 +9,9 @@ That means that we have to change the bike model %>
 <%= @bike.location%><br>
 <%= @bike.year%><br>
 <%= @bike.price%><br>
+<%= cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill %>
+
+<br>
 
 <%# This link will work after we code the index page%>
 <%= link_to "Back to home", bikes_path %>
