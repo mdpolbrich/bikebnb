@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users
+
   root to: 'bikes#index'
   resources :bikes do
     resources :bookings, only: [:index, :new, :create]
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   # get "bookings/index", to: "bookings#index", as: :index_booking
   # get "bookings/new", to: "bookings#new", as: :new_booking
   # post "bookings/", to: "bookings#create"
+
 end
