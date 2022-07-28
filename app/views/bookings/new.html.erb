@@ -1,0 +1,20 @@
+<div class="banner">
+  <div class="row justify-content-center">
+    <div class="col-6">
+        <%= simple_form_for [@bike, @booking] do |f| %>
+          <%= f.input :start %>
+          <%= f.input :end %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<!--begin
+t.datetime :start
+t.datetime :end
+t.references :user, null: false, foreign_key: true
+t.references :bike, null: false, foreign_key: true
+--end>
