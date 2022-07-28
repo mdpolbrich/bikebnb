@@ -1,45 +1,25 @@
 
 <div class="card-product">
-  <img src="cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill"/>
+  <%= cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill %>
   <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+    <h1><%= @bike.name%></h1>
+    <h2><%= @bike.model%></h2>
+    <p><%= @bike.description%></p>
+    <p><%= @bike.location%></p>
+    <p><%= @bike.year%></p>
+    <p><%= @bike.price%></p>
   </div>
 </div>
 
-
-
-<h1><%= @bike.name%></h1>
-
-<%# Main attributes we want to show in our bike card %>
-
-<%# Before adding the image, we have to add in "new" the option to upload a photo.
-That means that we have to change the bike model %>
-
-
-
-<%= @bike.model%><br>
-<%= @bike.description%><br>
-<%= @bike.location%><br>
-<%= @bike.year%><br>
-<%= @bike.price%><br>
-<%= cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill %>
-
 <br>
 
-<%# This link will work after we code the index page%>
-<%= link_to "Back to home", bikes_path %>
-<%= link_to "create a Booking", new_bike_booking_path(@bike), class: "nav-link" %>
-
-
-<%= link_to "Edit bike", edit_bike_path(@bike) %>
-
-
-<%# This link will work after we code the index page%>
-<%= link_to "Delete #{@bike.name}",
+<div class="btn"><%= link_to "Back to home", bikes_path, class: "nav-link" %></div>
+<div class="btn"><%= link_to "create a Booking", new_bike_booking_path(@bike), class: "nav-link" %></div>
+<div class="btn"><%= link_to "Edit bike", edit_bike_path(@bike), class: "nav-link" %></div>
+<div class="btn"><%= link_to "Delete #{@bike.name}",
   bike_path(@bike),
   method: :delete,
-  data: { confirm: "Are you sure?" } %>
+  data: { confirm: "Are you sure?" }, class: "nav-link" %></div>
 
 <hr>
  <%# render/bookings %>
