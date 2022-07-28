@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  # # # before_action :set_bike, only: [:show, :edit, :update, :destroy]
+
+before_action :set_bike, only: [:new, :create]
 
   def index
     @bookings = Booking.all
@@ -12,11 +13,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.bike_id = 3
+    @booking.bike = Bike.find(params[:bike_id])
     # @booking.bike = current_bike
     @booking.save!
 
-    # redirect_to bookings_path(@booking)
+    redirect_to bike_path(@bike), notice: "Your booking has been created"
   end
 
   def edit
@@ -40,10 +41,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start, :end, :user, :bike)
+    params.require(:booking).permit(:start, :end, :user, :bike_id)
   end
 
-  # def set_bike
-  #  @bike = Bike.find(params[:id])
-  # end
+  def set_bike
+   @bike = Bike.find(params[:bike_id])
+  end
 end
