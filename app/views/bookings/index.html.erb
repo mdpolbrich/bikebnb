@@ -1,12 +1,19 @@
 <h1> YOUR BOOKINGS</h1>
 
-<div class="row">
+<div class="cards">
   <% @bookings.each do |booking| %>
-    <div class="co-8 col-sm-6 col-sm-4">
-      <%= booking.start %>
-      <%= booking.end %>
-      <%= booking.bike.name %>
-    </div>
+      <div class="card">
+        <% if booking.bike.image.attached? %>
+            <%= cl_image_tag booking.bike.image.key%>
+          <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg"%>
+          <% end %>
+        <div class="card-body">
+          <p class="fw-bold"><%= booking.bike.name%></p>
+          <p class="fw-light">Start Date: <%= booking.start.strftime("%A, %b %d") %></p>
+          <p class="fw-light">End Date: <%= booking.end.strftime("%A, %b %d") %></p>
+        </div>
+      </div>
   <% end %>
 </div>
 
