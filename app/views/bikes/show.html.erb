@@ -13,13 +13,13 @@
 
 <br>
 
-<div class="btn"><%= link_to "Back to home", bikes_path, class: "nav-link" %></div>
+ <%# <div class="btn"><%= link_to "home", bikes_path, class: "nav-link" %>
 <div class="btn"><%= link_to "create a Booking", new_bike_booking_path(@bike), class: "nav-link" %></div>
-<div class="btn"><%= link_to "Edit bike", edit_bike_path(@bike), class: "nav-link" %></div>
-<div class="btn"><%= link_to "Delete #{@bike.name}",
-  bike_path(@bike),
-  method: :delete,
-  data: { confirm: "Are you sure?" }, class: "nav-link" %></div>
-
+<% if @bike.user == current_user %>
+<div class="btn"><%= link_to "edit", edit_bike_path(@bike), class: "nav-link" %></div>
+<% end %>
+<% if @bike.user == current_user %>
+<div class="btn"><%= link_to "delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "nav-link" %></div>
+<% end %>
 <hr>
  <%# render/bookings %>
