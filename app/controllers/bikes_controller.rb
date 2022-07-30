@@ -33,16 +33,21 @@ class BikesController < ApplicationController
   end
 
   def update
+    if @bike.user == current_user
+
     # the update action already saves the changes
-    if @bike.update(bike_params)
-      redirect_to bike_path(@bike)
-    else
-      render :edit
+      if @bike.update(bike_params)
+        redirect_to bike_path(@bike)
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
-    @bike.destroy
+    if @bike.user == current_user
+      @bike.destroy
+    end
     redirect_to bikes_path
   end
 
