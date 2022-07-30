@@ -1,13 +1,13 @@
 
 <div class="card-product">
-  <%= cl_image_tag @bike.image.key, height: 200, width: 200, crop: :fill %>
+  <%= cl_image_tag @bike.image.key, height: 200, width: 200 %>
   <div class="card-product-infos">
     <h1><%= @bike.name%></h1>
     <h2><%= @bike.model%></h2>
     <p><%= @bike.description%></p>
     <p><%= @bike.location%></p>
     <p><%= @bike.year%></p>
-    <p><%= @bike.price%></p>
+    <h2><%= @bike.price%></h2>
   </div>
 </div>
 
