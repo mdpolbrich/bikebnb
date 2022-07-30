@@ -19,16 +19,19 @@
 .bottomtext {
   font-size: 20px;
   color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 .bottomtier {
   font-size: 16px;
   color: rgb(255, 255, 255);
+  left: 0;
 }
+
 
 .bottomalign {
   position: absolute;
   padding: 20px;
   bottom: 0;
-  left: 0;
+
 }

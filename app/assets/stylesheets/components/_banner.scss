@@ -18,6 +18,7 @@
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
+    justify-content: center;
   }
 }
 
@@ -25,6 +26,7 @@
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
+    justify-content: center;
   }
 }
 
@@ -32,6 +34,7 @@
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
   }
 }
 
@@ -39,6 +42,7 @@
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
   }
 }
 
@@ -46,6 +50,7 @@
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
   }
 }
 }
