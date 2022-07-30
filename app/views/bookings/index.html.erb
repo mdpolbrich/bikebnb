@@ -13,4 +13,12 @@
     <% end %>
   </div>
 
+  <h1> YOUR BOOKED BIKES</h1>
+
+   <ul class= "list-group my-3">
+    <% @my_bookings.each do |my_booking| %>
+      <li class= "list-group-item my-1"><%= my_booking%></li>
+    <% end %>
+  </ul>
+
   <%= link_to "Back to home", root_path %>

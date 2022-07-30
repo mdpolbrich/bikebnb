@@ -4,6 +4,15 @@ before_action :set_bike, only: [:new, :create]
 
   def index
     @bookings = Booking.all
+    @my_bookings = []
+    @my_bikes = Bike.where(user_id: current_user).each do |my_bike|
+      @my_bookings << my_bike.bookings
+    end
+    @my_bookings
+  end
+
+  def accept
+    @my_booking.confirmation = true
   end
 
   def new
