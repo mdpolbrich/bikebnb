@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'bikes#index'
   resources :bikes do
-    resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
+  resources :bookings, only: [:index]
   # get "bikes/new", to: "bikes#new", as: :new_bike
   # post "bikes/", to: "bikes#create"
   # get "bikes/:id/edit", to: "bikes#edit", as: :edit_bike
