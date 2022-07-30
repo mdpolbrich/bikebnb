@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
 before_action :set_bike, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
+    # @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user)
   end
 
   def new
