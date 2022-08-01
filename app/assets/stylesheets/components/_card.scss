@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 0 5px;
+  padding: 25px 0px 25px 100px;
 }
 
 .card {
@@ -22,15 +23,17 @@
   text-decoration: none;
 }
 
-.cardtext {
-  font-size: 16px;
-  color: rgb(255, 255, 255);
-  left: 0;
-}
-
-
 .cardtext-pos {
   position: absolute;
   padding: 20px;
   bottom: 0;
+}
+
+.cardtext {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content:flex-end;
+  position: relative;
+  gap: 50px;
 }
