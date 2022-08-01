@@ -9,29 +9,28 @@
   background-size: cover;
   background-position: center;
 //  height: 200px;
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: center;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.bottomtext {
+.cardtext-link {
   font-size: 20px;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
-.bottomtier {
+.cardtext {
   font-size: 16px;
   color: rgb(255, 255, 255);
   left: 0;
 }
 
 
-.bottomalign {
+.cardtext-pos {
   position: absolute;
   padding: 20px;
   bottom: 0;
-
 }
