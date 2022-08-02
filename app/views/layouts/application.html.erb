@@ -13,10 +13,13 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-        <%= render 'shared/navbar' %> <br>
-        <%= yield %> <br>
-        <%= render 'shared/footer' %> <br>
+  <div class="d-flex flex-column min-vh-100">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <div class="flex-grow-1">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

@@ -12,16 +12,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "your Bookings", bookings_path, class: "nav-link" %>
+          <a class="nav-link" href="/bikes">Home</a>
           </li>
-          <li class="nav-item">
-            <%= link_to "offer a bike", new_bike_path, class: "nav-link" %>
+          <li class="nav-item active">
+          <a class="nav-link" href="/bookings">Bookings</a>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "Monster_icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <!-- <%= link_to "Action", "#", class: "dropdown-item" %> -->
               <!-- <%= link_to "Another action", "#", class: "dropdown-item" %> -->
+              <%= link_to "List a bike", new_bike_path, class: "dropdown-item" %>
+              <%= link_to "Your bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
             </div>
           </li>
