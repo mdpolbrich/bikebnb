@@ -38,28 +38,18 @@
   gap: 50px;
 }
 
-.card-product {
+.card-booking {
   overflow: hidden;
-  height: 120px;
-  background: white;
+  height: 150px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
+  background-image: url("https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg");
+  background-position: center;
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
+.card-booking p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -67,6 +57,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-booking .card-booking-infos {
   padding: 16px;
 }
