@@ -1,10 +1,18 @@
 class BookingsController < ApplicationController
-
-before_action :set_bike, only: [:new, :create]
+  before_action :set_bike, only: [:new, :create]
 
   def index
     # @bookings = Booking.all
     @bookings = Booking.where(user_id: current_user)
+    @my_bookings = []
+    @my_bikes = Bike.where(user_id: current_user).each do |my_bike|
+      @my_bookings << my_bike.bookings
+    end
+    @my_bookings
+  end
+
+  def accept
+    @my_booking.confirmation = true
   end
 
   def new
@@ -21,24 +29,6 @@ before_action :set_bike, only: [:new, :create]
     redirect_to bike_path(@bike), notice: "Your booking has been created"
   end
 
-  def edit
-  end
-
-  def show
-  end
-
-  # def update
-  #   @bike.update(bike_params)
-  #   # the update action already saves the changes
-
-  #   redirect_to bike_path(@bike)
-  # end
-
-  # def destroy
-  #   @bike.destroy
-  #   redirect_to bikes_path
-  # end
-
   private
 
   def booking_params
@@ -46,6 +36,6 @@ before_action :set_bike, only: [:new, :create]
   end
 
   def set_bike
-   @bike = Bike.find(params[:bike_id])
+    @bike = Bike.find(params[:bike_id])
   end
 end
