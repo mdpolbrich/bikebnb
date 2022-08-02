@@ -1,0 +1,6 @@
+some thoughts of github workflow, for maybe less conflicts:
+
+- PLZ keep the order of the commits, or put them togehter before merging
+- merge small changes first?
+- please read the comments, write comments and reviews
+- maybe after ONE person was reviewing, sent the code back to the coding person
