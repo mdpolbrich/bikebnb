@@ -3,37 +3,39 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 0 5px;
+  padding: 25px 0px 25px 80px;
 }
 
 .card {
   background-size: cover;
   background-position: center;
 //  height: 200px;
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: center;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.bottomtext {
+.cardtext-link {
   font-size: 20px;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
-.bottomtier {
-  font-size: 16px;
-  color: rgb(255, 255, 255);
-  left: 0;
-}
-
-
-.bottomalign {
+.cardtext-pos {
   position: absolute;
   padding: 20px;
   bottom: 0;
+}
 
+.cardtext {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content:flex-end;
+  position: relative;
+  gap: 50px;
 }
 
 .card-product {
