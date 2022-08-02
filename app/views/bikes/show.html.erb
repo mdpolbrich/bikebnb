@@ -1,9 +1,9 @@
-
+<div class="container">
 <div class="card-product">
 <% if @bike.image.attached? %>
     <%= cl_image_tag @bike.image.key, height: 200, width: 200 %>
   <% else %>
-    <%= image_tag "https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg", height: 200, width: 200 %>
+    <%= image_tag "https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg", style: "object-fit: cover" %>
   <% end %>
   <div class="card-product-infos">
     <h1><%= @bike.name%></h1>
@@ -11,19 +11,19 @@
     <p><%= @bike.description%></p>
     <p><%= @bike.location%></p>
     <p><%= @bike.year%></p>
-    <h2><%= @bike.price%></h2>
+    <h2><%= @bike.price%>€</h2>
   </div>
 </div>
 
 <br>
 
  <%# <div class="btn"><%= link_to "home", bikes_path, class: "nav-link" %>
-<div class="btn"><%= link_to "create a Booking", new_bike_booking_path(@bike), class: "nav-link" %></div>
+<div class="btn btn-light"><%= link_to "create a Booking", new_bike_booking_path(@bike), class: "text-decoration-none text-black" %></div>
 <% if @bike.user == current_user %>
-<div class="btn"><%= link_to "edit", edit_bike_path(@bike), class: "nav-link" %></div>
+<div class="btn btn-light"><%= link_to "edit", edit_bike_path(@bike), class: "text-decoration-none text-black" %></div>
 <% end %>
 <% if @bike.user == current_user %>
-<div class="btn"><%= link_to "delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "nav-link" %></div>
+<div class="btn btn-light"><%= link_to "delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" %></div>
 <% end %>
-<hr>
  <%# render/bookings %>
+</div>
