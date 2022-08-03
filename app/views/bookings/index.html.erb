@@ -6,8 +6,9 @@
     <li class= "card-booking">
       <div class="card-booking-infos">
         <h3 class="fw-bold"><%= booking.bike.name%> | <%= booking.bike.location%></h3>
-        <p class="fw-light">Start Date: <%= booking.start.strftime("%A, %b %d") %></p>
-        <p class="fw-light">End Date: <%= booking.end.strftime("%A, %b %d") %></p>
+        <p class="fw-light">Start Date: <%= booking.start.strftime("%b %d, %Y") %></p>
+        <p class="fw-light">End Date: <%= booking.end.strftime("%b %d, %Y") %></p>
+        <p class="fw-bold"><%= booking.bike.price %> €</p>
       </div>
       <% end %>
     </li>
@@ -15,11 +16,26 @@
 
   <h1> Your booked bikes</h1>
 
-   <ul class= "list-group my-3">
+   <div class= "cards-confirmation">
     <% @my_bookings.each do |my_booking| %>
-      <li class= "list-group-item my-1"><%= my_booking%></li>
-    <% end %>
-  </ul>
+     <div class= "card-confirmation">
+      <div>
+        <% my_booking.extract_associated(:bike).each do |my_bike| %>
+          <h3><%= my_bike.name %></h3>
+        <% end %>
+        <% my_booking.extract_associated(:user).each do |the_user| %>
+         <p>Booked by <%= the_user.first_name %></p>
+        <% end %>
+        <% my_booking.each do |booking|%>
+          <p>From <%= booking.start.strftime("%b %d, %Y") %> to <%= booking.end.strftime("%b %d, %Y") %></p>
+      </div>
+        <% if booking.confirmation == false %>
+          <a class="btn btn-confirmation" href="">Accept</a>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
 
   <div class="btn btn-light"><%= link_to "Back to home", root_path, class:"text-decoration-none text-black" %></div>
 </div>
