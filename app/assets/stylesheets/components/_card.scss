@@ -1,9 +1,11 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-content: center;
   grid-gap: 16px;
   margin: 0 5px;
-  padding: 25px 0px 25px 80px;
+  padding: 25px 0px 25px 125px;
+
 }
 
 .card {
