@@ -7,6 +7,15 @@
 </div>
 
 <div class= "container">
+  <%= form_tag bikes_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "name or location"
+  %>
+  <%= submit_tag "Search", class: "btn btn-light" %>
+<% end %>
+
   <div class="cards">
     <% @bikes.each do |bike| %>
       <% if bike.image.attached? %>
