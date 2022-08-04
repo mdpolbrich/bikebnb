@@ -38,7 +38,7 @@ puts "created #{test_bike_3.id}"
 booking_1 = Booking.create(start: Date.new(2022, 4, 3), end: Date.new(2022, 4, 6), user_id: maria.id, bike_id: test_bike_1.id)
 puts "created #{booking_1.id}"
 
-122.times do
+32.times do
   new_bike = Bike.create!(name: Faker::Name.name, description: Faker::Quote.matz, model: Faker::Vehicle.make, location: "Berlin", year: Faker::Vehicle.year, price: Faker::Number.decimal(l_digits: 1), user_id: maria.id)
   sample_file = Dir.glob("db/bikes/*.jpg").sample
   puts sample_file
