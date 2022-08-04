@@ -4,8 +4,9 @@ class BikesController < ApplicationController
   def index
     #for search
     if params[:query].present?
-      sql_query = "name @@ :query OR location @@ :query"
-      @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+    # sql_query = "name @@ :query OR location @@ :query"
+    #  @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      @bikes = Bike.search_by_name_and_location(params[:query])
     else
       @bikes = Bike.all
     end
