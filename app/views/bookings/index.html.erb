@@ -28,11 +28,12 @@
         <% end %>
         <% my_booking.each do |booking|%>
           <p>From <%= booking.start.strftime("%b %d, %Y") %> to <%= booking.end.strftime("%b %d, %Y") %></p>
-      </div>
         <% if booking.confirmation == false %>
-          <a class="btn btn-confirmation" href="">Accept</a>
+        <!--  <a class="btn btn-confirmation" id="confirmation" data-controller="confirmation" data-action="click->confirmation#accept">Accept</a>-->
+        <%= link_to "Acept", booking_path(booking), method: :patch, class:"btn btn-confirmation"%>
         <% end %>
       <% end %>
+      </div>
     </div>
   <% end %>
   </div>

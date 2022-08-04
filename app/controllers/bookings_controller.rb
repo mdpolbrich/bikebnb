@@ -11,8 +11,12 @@ class BookingsController < ApplicationController
     @my_bookings
   end
 
-  def accept
+  def update
+    @my_booking = Booking.find(params[:id])
     @my_booking.confirmation = true
+    @my_booking.save
+
+    redirect_to bookings_path
   end
 
   def new
