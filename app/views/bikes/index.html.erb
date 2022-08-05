@@ -1,18 +1,19 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1621394445346-c7b502f07206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80);">
   <div class= "hero">
-    <h1><strong>Rent a bike anytime, anywhere.</strong></h1>
-    <p>Have an additional bike? Get some extra income listing a bike!</p>
-    <a class="btn btn-light" href="/bikes/new">List your bike</a>
+    <h1><strong>Bikebnb</strong></h1>
+    <p>rent a bike in the neightboorhood
+    or get some extra income listing a bike on our platform</p>
+    <a class="btn btn-light" href="/bikes/new">List a bike</a>
   </div>
 </div>
 
-<div class= "container">
+<div>
   <div class="cards">
     <% @bikes.each do |bike| %>
       <% if bike.image.attached? %>
-          <div class="card" style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path bike.image.key %>')">
+          <div class="card" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.4)), url('<%= cl_image_path bike.image.key %>')">
         <% else %>
-          <div class="card" style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg)">
+          <div class="card" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg)">
       <% end %>
         <div class="cardtext-pos text-white">
             <h2 class="cardtext-link"><%= link_to bike.name, bike_path(bike), class:"text-decoration-none text-white"%></h2>
