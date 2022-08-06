@@ -1,12 +1,29 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1621394445346-c7b502f07206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80);">
   <div class= "hero">
-    <h1><strong>Rent a bike anytime, anywhere.</strong></h1>
-    <p>Have an additional bike? Get some extra income listing a bike!</p>
-    <a class="btn btn-light" href="/bikes/new">List your bike</a>
+    <h1>Bikebnb</h1>
+     <p>Have an additional bike? Get some extra income listing a bike!</p>
+    <a class="btn" href="/bikes/new">List your bike</a>
   </div>
 </div>
 
 <div class= "container">
+  <div class= "search">
+      <%= form_tag bikes_path, method: :get, class:'d-flex' do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control col-md-4 col-md-offset-4",
+        placeholder: "Name or location"
+      %>
+      <div>
+        <%= button_tag(type: "submit", class: "btn btn-default") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
+
+
+    <% end %>
+  </div>
+
   <div class="cards">
     <% @bikes.each do |bike| %>
       <% if bike.image.attached? %>
@@ -16,6 +33,7 @@
       <% end %>
         <div class="cardtext-pos text-white">
             <h2 class="cardtext-link"><%= link_to bike.name, bike_path(bike), class:"text-decoration-none text-white"%></h2>
+
              <div class="cardtext">
               <p><%= bike.location%></p>
               <p><%= bike.price%> €</p>
