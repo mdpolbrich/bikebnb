@@ -1,42 +1,51 @@
 <div class= "container">
   <h1>Your bookings</h1>
+  <% if @bookings.blank? %>
+    <p>Book your first bike!</p>
+  <% else %>
+    <ul class= "list-group my-3">
+      <% @bookings.each do |booking| %>
+      <li class= "card-booking">
+        <div class="card-booking-infos">
+          <h3 class="fw-bold"><%= booking.bike.name%> | <%= booking.bike.location%></h3>
+          <p class="fw-light">Start Date: <%= booking.start.strftime("%b %d, %Y") %></p>
+          <p class="fw-light">End Date: <%= booking.end.strftime("%b %d, %Y") %></p>
+          <p class="fw-bold"><%= booking.bike.price %> €</p>
+        </div>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
+</div>
 
-  <ul class= "list-group my-3">
-    <% @bookings.each do |booking| %>
-    <li class= "card-booking">
-      <div class="card-booking-infos">
-        <h3 class="fw-bold"><%= booking.bike.name%> | <%= booking.bike.location%></h3>
-        <p class="fw-light">Start Date: <%= booking.start.strftime("%b %d, %Y") %></p>
-        <p class="fw-light">End Date: <%= booking.end.strftime("%b %d, %Y") %></p>
-        <p class="fw-bold"><%= booking.bike.price %> €</p>
-      </div>
-      <% end %>
-    </li>
-  </ul>
-
+<div class= "container">
   <h1> Your booked bikes</h1>
 
    <div class= "cards-confirmation">
-    <% @my_bookings.each do |my_booking| %>
-     <div class= "card-confirmation">
-      <div>
-        <% my_booking.extract_associated(:bike).each do |my_bike| %>
-          <h3><%= my_bike.name %></h3>
+    <% if @my_bookings.blank? %>
+      <p>You don't have any bookings yet</p>
+    <% else %>
+      <% @my_bookings.each do |my_booking| %>
+      <div class= "card-confirmation">
+        <div>
+          <% my_booking.extract_associated(:bike).each do |my_bike| %>
+              <h3><%= my_bike.name %></h3>
+          <% my_booking.extract_associated(:user).each do |the_user| %>
+              <p>Booked by <%= the_user.first_name %></p>
+            <% my_booking.each do |booking|%>
+              <p>From <%= booking.start.strftime("%b %d, %Y") %> to <%= booking.end.strftime("%b %d, %Y") %></p>
+              <% if booking.confirmation == false %>
+                <%= link_to "Acept", booking_path(booking), method: :patch, class:"btn btn-confirmation"%>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
-        <% my_booking.extract_associated(:user).each do |the_user| %>
-         <p>Booked by <%= the_user.first_name %></p>
-        <% end %>
-        <% my_booking.each do |booking|%>
-          <p>From <%= booking.start.strftime("%b %d, %Y") %> to <%= booking.end.strftime("%b %d, %Y") %></p>
-        <% if booking.confirmation == false %>
-        <!--  <a class="btn btn-confirmation" id="confirmation" data-controller="confirmation" data-action="click->confirmation#accept">Accept</a>-->
-        <%= link_to "Acept", booking_path(booking), method: :patch, class:"btn btn-confirmation"%>
-        <% end %>
-      <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
   </div>
+</div>
 
   <div class="btn btn-light"><%= link_to "Back to home", root_path, class:"text-decoration-none text-black" %></div>
 </div>
