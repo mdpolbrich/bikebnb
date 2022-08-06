@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :bikes do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :update]
+
   # get "bikes/new", to: "bikes#new", as: :new_bike
   # post "bikes/", to: "bikes#create"
   # get "bikes/:id/edit", to: "bikes#edit", as: :edit_bike

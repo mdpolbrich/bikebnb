@@ -29,7 +29,7 @@ test_bike_3 = Bike.create!(name: "Little bike", description: "Bike for children 
   small for my son. Everything is working and for the price I can offer a helmet on top", model: "childweels", location: "Berlin-Mitte", year: 2020, price: 40, user_id: maria.id)
 puts "created #{test_bike_3.id}"
 
-booking_1 = Booking.create(start: Date.new(2022, 4, 3), end: Date.new(2022, 4, 6), user_id: maria.id, bike_id: test_bike_1.id)
+booking_1 = Booking.create(start: Date.new(2022, 4, 3), end: Date.new(2022, 4, 6), user_id: monica.id, bike_id: test_bike_3.id)
 puts "created #{booking_1.id}"
 
 puts "seed finished"

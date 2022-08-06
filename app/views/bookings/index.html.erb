@@ -1,28 +1,46 @@
 <div class= "container">
-<h1><b> YOUR BOOKINGS</b></h1>
-
-<div class="card-product">
- <% @bookings.each do |booking| %>
-  <% if booking.bike.image.attached? %>
-    <%= cl_image_tag booking.bike.image.key %>
+  <h1>Your bookings</h1>
+  <% if @bookings.blank? %>
+    <p>Book your first bike!</p>
   <% else %>
-    <%= image_tag "https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80.jpg"%>
-  <% end %>
-  <div class="card-product-infos">
-    <h3 class="fw-bold"><%= booking.bike.name%> | <%= booking.bike.location%></h3>
-    <p class="fw-light">Start Date: <%= booking.start.strftime("%A, %b %d") %></p>
-    <p class="fw-light">End Date: <%= booking.end.strftime("%A, %b %d") %></p>
-  </div>
-  <% end %>
+    <ul class= "list-group my-3">
+      <% @bookings.each do |booking| %>
+      <li class= "card-booking">
+        <div class="card-booking-infos">
+          <h3 class="fw-bold"><%= booking.bike.name%> | <%= booking.bike.location%></h3>
+          <p class="fw-light">Start Date: <%= booking.start.strftime("%b %d, %Y") %></p>
+          <p class="fw-light">End Date: <%= booking.end.strftime("%b %d, %Y") %></p>
+          <p class="fw-bold"><%= booking.bike.price %> €</p>
+        </div>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
 </div>
 
-  <h1> YOUR BOOKED BIKES</h1>
-
-   <ul class= "list-group my-3">
-    <% @my_bookings.each do |my_booking| %>
-      <li class= "list-group-item my-1"><%= my_booking[1]%></li>
+<div class= "container">
+  <h1> Your booked bikes</h1>
+   <div class= "cards-confirmation">
+    <% if @my_bookings.blank? %>
+      <p>You don't have any bookings yet</p>
+    <% else %>
+      <% @my_bookings.each do |my_booking| %>
+        <% my_booking.each do |booking|%>
+          <div class= "card-confirmation">
+            <div>
+              <h3><%= booking.bike.name %></h3>
+              <p>Booked by <%= booking.user.first_name %></p>
+              <p>From <%= booking.start.strftime("%b %d, %Y") %> to <%= booking.end.strftime("%b %d, %Y") %></p>
+              <% if booking.confirmation == false %>
+                <%= link_to "Accept", booking_path(booking), method: :patch, class:"btn btn-confirmation"%>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="btn btn-light"><%= link_to "Back to home", root_path, class:"text-decoration-none text-black" %></div>
+
 </div>
