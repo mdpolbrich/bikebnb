@@ -2,6 +2,7 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
   def index
+
     #for search
     if params[:query].present?
     # sql_query = "name @@ :query OR location @@ :query"
@@ -9,6 +10,14 @@ class BikesController < ApplicationController
       @bikes = Bike.search_by_name_and_location(params[:query])
     else
       @bikes = Bike.all
+    end
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url("bikeicon.png")
+      }
     end
   end
 
