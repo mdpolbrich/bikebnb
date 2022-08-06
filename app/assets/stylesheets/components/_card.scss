@@ -3,16 +3,15 @@
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   grid-gap: 16px;
-  margin: 0 5px;
-  padding: 25px 0px 25px 125px;
+  margin: 30px;
 
 }
 
 .card {
   background-size: cover;
   background-position: center;
-//  height: 200px;
-  width: 400px;
+  height: 300px;
+  width: 100%;
   display: flex;
   justify-content: center;
   border-radius: 5px;
