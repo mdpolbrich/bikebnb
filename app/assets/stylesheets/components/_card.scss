@@ -1,16 +1,17 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 320px 320px 320px;
   grid-gap: 16px;
   margin: 0 5px;
-  padding: 25px 0px 25px 80px;
+  padding: 25px 0px 25px 0px;
+  justify-content: center;
 }
 
 .card {
   background-size: cover;
   background-position: center;
 //  height: 200px;
-  width: 400px;
+  width: 315px;
   display: flex;
   justify-content: center;
   border-radius: 5px;
